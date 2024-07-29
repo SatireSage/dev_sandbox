@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dev Sandbox</h1>
+        <form method="post">
+            <p>Student ID</p>
+            <input type="number" name="studentID">
+            <p>Time To Allocate (in hours)</p>
+            <input type="number" name="allocationTime">
+            <input type="submit" value="Request">
+        </form>
+    </div>
+</body>
+</html>
+
