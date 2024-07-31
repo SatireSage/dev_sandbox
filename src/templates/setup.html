@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Flask App</title>
+    <title>Setup</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
@@ -11,10 +11,10 @@
         <h1>Dev Sandbox</h1>
         <form method="post">
             <p>Student ID</p>
-            <input type="number" name="studentID">
+            <input type="number" name="studentID" min="0" step="1">
             <p>Time To Allocate (in hours)</p>
-            <input type="number" name="allocationTime">
-            <input type="submit" value="Request">
+            <input type="number" name="allocationTime" min="0.5" step="0.5" placeholder="Minimum 0.5 hours">
+            <input type="submit" value="Send Request">
         </form>
     </div>
 </body>
