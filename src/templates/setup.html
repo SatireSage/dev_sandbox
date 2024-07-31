@@ -5,15 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setup</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!--Styling to remove up and down buttons for the studentID box found in:
+        https://stackoverflow.com/questions/23372903/hide-up-down-arrow-buttons-spinner-in-input-number-firefox-29
+    -->
+    <style>
+        input.studentIDInput::-webkit-outer-spin-button,
+        input.studentIDInput::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+
+        input.studentIDInput[type=number] {
+            -moz-appearance:textfield; /* Firefox */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Dev Sandbox</h1>
         <form method="post">
+            <p>{{warning}}</p>
             <p>Student ID</p>
-            <input type="number" name="studentID" min="0" step="1">
-            <p>Time To Allocate (in hours)</p>
-            <input type="number" name="allocationTime" min="0.5" step="0.5" placeholder="Minimum 0.5 hours">
+            <input type="number" name="studentID" min="301000000" max="301999999" step="1" inputmode="numeric" class="studentIDInput">
+            <p>Time To Allocate in Hours and Minutes (Max 5 Hours)</p>
+            <div>
+                <input type="number" name="allocationTimeHours" min="0" max="5" step="1" value="0">
+                <input type="number" name="allocationTimeMinutes" min="0" max="59" step="1" value="0">
+            </div>
             <input type="submit" value="Send Request">
         </form>
     </div>
