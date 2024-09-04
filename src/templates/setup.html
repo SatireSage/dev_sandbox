@@ -28,6 +28,14 @@
             <p>{{warning}}</p>
             <p>Student ID</p>
             <input type="number" name="studentID" min="301000000" max="301999999" step="1" inputmode="numeric" class="studentIDInput">
+            <p>Linux Distributions</p>
+            <select name="linuxDistributions">
+                <option value="None">Click to Select</option>
+                <option value="Debian">Debian</option>
+                <option value="Ubuntu">Ubuntu</option>
+                <option value="Alpine">Alpine</option>
+                <option value="CentOS">CentOS</option>
+            </select>
             <p>Time To Allocate in Hours and Minutes (Max 5 Hours)</p>
             <div>
                 <input type="number" name="allocationTimeHours" min="0" max="5" step="1" value="0">

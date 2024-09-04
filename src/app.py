@@ -12,7 +12,11 @@ def setup():
         ## Temporarily just grabbing data locally here, remove comment when SSH credentials is implemented
         studentID = request.form.get('studentID')
         allocationTime = int(request.form.get('allocationTimeHours'))*60 + int(request.form.get('allocationTimeMinutes'))
+        linuxDistribution = request.form.get('linuxDistributions')
 
+        if linuxDistribution == "None":
+            return render_template('setup.html', warning='Must select a linux distribution')
+        
         if allocationTime > 300:
             return render_template('setup.html', warning='Maximum Allocation Time is 5 Hours')
         elif allocationTime == 0:
